@@ -1,11 +1,21 @@
 import React from "react";
-// import ListingCard from "./ListingCard";
+import ListingCard from "./ListingCard";
 
-function ListingsContainer() {
+function ListingsContainer({items,gurl,onFavoriteItem, onDeleteItem}) {
+  let itemsToDisplay=items.map((item)=>(
+    <ListingCard
+      key={item.id}
+      item={item}
+      gurl={gurl}
+      onFavoriteItem={onFavoriteItem}
+      onDeleteItem={onDeleteItem}
+    />
+  ))
+
   return (
     <main>
       <ul className="cards">
-        {/* use the ListingCard component to display listings */}
+        {itemsToDisplay}
       </ul>
     </main>
   );
